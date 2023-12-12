@@ -1,5 +1,5 @@
 function salaryRandomGenerator(sum, days) {
-  const userSum = sum;
+  // const userSum = sum;
   const midValue = sum / days;
   const sumArray = [];
 
@@ -41,15 +41,17 @@ function showArrayHandler(sum, arr) {
     arr[arr.length - 1] = newLastNum.toFixed(2)
   }
 
-  console.log('Total sum: ', sum.toFixed(2));
-  console.log('Total sum: ', sum - correctionNum );
+  console.log('Total sum: ', totalSum.toFixed(2));
+  console.log('Total sum: ', correctionNum );
 }
 
 
 
-const arr1 = salaryRandomGenerator(1100, 31);
+const arr1 = salaryRandomGenerator(1100.39, 31);
 
-showArrayHandler(1100, arr1);
+showArrayHandler(1100.39, arr1);
 
-console.log(arr1);
+arr1.forEach((num) => {
+  console.log(num);
+});
 
