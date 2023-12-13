@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import CssBaseline from '@mui/material/CssBaseline'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
@@ -6,9 +7,11 @@ import Grid from '@mui/material/Grid'
 import SalaryList from './components/SalaryList'
 import Calculator from './components/Calculator'
 
+
 const App = () => {
-  const [showCalculator, setShowCalculator] = useState(true)
-  const [calculationDone, setCalculationDone] = useState(false)
+
+  const showCalculator = useSelector((state) => state.app.showCalculator)
+  const showSalaryList = useSelector((state) => state.app.showSalaryList)
 
   return (
     <>
@@ -22,7 +25,7 @@ const App = () => {
           style={{ minHeight: '100vh' }}
         >
           {showCalculator && <Calculator/>}
-          {calculationDone && <SalaryList/>}
+          {showSalaryList && <SalaryList/>}
         </Grid>
 
       </Container>

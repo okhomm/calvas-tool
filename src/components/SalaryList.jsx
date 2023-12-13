@@ -1,4 +1,5 @@
-import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setShowDataHandler } from '../store/appSlice'
 import SalaryItem from './SalaryItem'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -11,6 +12,8 @@ const salary = [
 ]
 
 const SalaryList = () => {
+  const dispatch = useDispatch()
+
   const salaryList = salary.map((sum, index) => (
     <SalaryItem key={index} sum={sum} day={index + 1} />
   ))
@@ -21,7 +24,7 @@ const SalaryList = () => {
         variant="contained"
         size="large"
         startIcon={<ArrowBackIcon />}
-        onClick={() => console.log('Go back')}
+        onClick={() => dispatch(setShowDataHandler())}
       >
         Go back
       </Button>
@@ -30,7 +33,7 @@ const SalaryList = () => {
         variant="contained"
         size="large"
         startIcon={<ArrowBackIcon />}
-        onClick={() => console.log('Go back')}
+        onClick={() => dispatch(setShowDataHandler())}
       >
         Go back
       </Button>

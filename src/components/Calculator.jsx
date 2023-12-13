@@ -1,3 +1,7 @@
+import { useDispatch } from 'react-redux'
+import { setShowDataHandler } from '../store/appSlice'
+
+
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
@@ -13,6 +17,9 @@ import CalculateIcon from '@mui/icons-material/Calculate'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 const Calculator = () => {
+  const dispatch = useDispatch()
+
+
   const daysNumList = Array.from({ length: 31 }, (_, index) => index + 1)
   const currencyList = ['$', '€', '£', 'zł', '₴']
 
@@ -90,7 +97,7 @@ const Calculator = () => {
           variant="contained"
           size="large"
           endIcon={<ArrowForwardIcon />}
-          onClick={() => console.log('Results')}
+          onClick={() => dispatch(setShowDataHandler())}
         >
           Calculate
         </Button>
