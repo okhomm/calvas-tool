@@ -29,14 +29,6 @@ const SalaryList = () => {
         Go back
       </Button>
       {salaryList}
-      <Button
-        variant="contained"
-        size="large"
-        startIcon={<ArrowBackIcon />}
-        onClick={() => dispatch(setShowDataHandler())}
-      >
-        Go back
-      </Button>
     </Box>
   )
 }

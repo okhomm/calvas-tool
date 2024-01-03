@@ -6,8 +6,9 @@ const appSlice = createSlice({
   initialState: {
     showCalculator: true,
     showSalaryList: false,
-    salary: 0,
     days: 0,
+    salary: 0,
+    currency: '',
   },
 
   reducers: {
@@ -20,9 +21,15 @@ const appSlice = createSlice({
     setShowDataHandler: (state, action) => {
       state.showCalculator = !state.showCalculator
       state.showSalaryList = !state.showSalaryList
+    },
+    setData: (state, action) => {
+      const { days, salary, currency } = action.payload;
+      state.days = parseInt(days);
+      state.salary = parseFloat(salary);
+      state.currency = currency;
     }
   }
 })
 
-export const {setShowCalculator, setShowSalaryList, setShowDataHandler} = appSlice.actions
+export const {setShowCalculator, setShowSalaryList, setShowDataHandler, setData} = appSlice.actions
 export default appSlice.reducer
