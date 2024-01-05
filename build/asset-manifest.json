@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.7d231bdd.js",
-    "index.html": "/index.html",
-    "main.7d231bdd.js.map": "/static/js/main.7d231bdd.js.map"
+    "main.js": "/calvas-tool/static/js/main.7d231bdd.js",
+    "index.html": "/calvas-tool/index.html",
+    "main.7d231bdd.js.map": "/calvas-tool/static/js/main.7d231bdd.js.map"
   },
   "entrypoints": [
     "static/js/main.7d231bdd.js"
