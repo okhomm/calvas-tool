@@ -1,21 +1,22 @@
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { setShowDataHandler } from '../store/appSlice'
+import salaryHandler from '../helpers/calculateSalary'
 import SalaryItem from './SalaryItem'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-const salary = [
-  77.74, 71.0, 67.28, 77.74, 64.29, 61.82, 77.74, 62.95, 77.74, 57.74, 66.64,
-  57.74, 57.74, 73.41, 57.74, 71.07, 67.87, 75.6, 66.9, 63.7, 70.54, 61.75,
-  77.74, 57.74, 57.74, 67.72, 77.74, 57.74, 74.46, 67.29, 57.74,
-]
-
 const SalaryList = () => {
   const dispatch = useDispatch()
+  const days = useSelector((state) => state.app.days)
+  const userSalary = useSelector((state) => state.app.salary)
+  const currency = useSelector((state) => state.app.currency )
+  
+  const salarySums = salaryHandler(userSalary, days)
 
-  const salaryList = salary.map((sum, index) => (
-    <SalaryItem key={index} sum={sum} day={index + 1} />
+  const salaryList = salarySums.map((sum, index) => (
+    <SalaryItem key={index} sum={sum} day={index + 1} currency={currency} />
   ))
 
   return (
